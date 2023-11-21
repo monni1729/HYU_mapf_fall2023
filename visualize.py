@@ -1,9 +1,11 @@
 from my_cbs import Environment, compute_cost, CBS
 import matplotlib.pyplot as plt
 import numpy as np
+import time
 
 
 def vis(obstacles, solution):
+    ccc = ['b', 'r', 'g', 'c', 'm', 'y']
     max_t = max([len(s) for s in solution.values()])
     positions = np.zeros((len(solution), (max_t - 1) * 10 + 1, 2), dtype=float)
 
@@ -28,7 +30,7 @@ def vis(obstacles, solution):
         circles_rects = []
         for i in range(len(solution)):
             circles_rects.append(plt.Circle((positions[i, f, 0], positions[i, f, 1]),
-                                            0.25, facecolor='yellow', fill=True, edgecolor='black'))
+                                            0.25, facecolor=ccc[i], fill=True, edgecolor='black'))
         for xx, yy in obstacles:
             circles_rects.append(plt.Rectangle((xx - 0.5, yy - 0.5), 1, 1,
                                                linewidth=0, edgecolor=None, facecolor='black'))
@@ -37,12 +39,12 @@ def vis(obstacles, solution):
             board.add_patch(cr)
 
         plt.draw()
+
         plt.pause(0.1)
 
         for cr in circles_rects:
             cr.remove()
-
-    plt.show()
+    time.sleep(1)
 
 
 def main():
