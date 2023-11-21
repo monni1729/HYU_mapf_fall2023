@@ -9,3 +9,4 @@ Matplotlib
 ```
 ~/HYU_mapf_fall2023$ python visualize.py
 ```
+![](https://github.com/monni1729/HYU_mapf_fall2023/blob/main/cbs_video.gif)
