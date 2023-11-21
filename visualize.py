@@ -41,9 +41,10 @@ def vis(obstacles, solution):
         plt.draw()
 
         plt.pause(0.1)
-
+        # plt.savefig(fname='./fig_' + str(f).zfill(2) + '.png', dpi=200)
         for cr in circles_rects:
             cr.remove()
+
     time.sleep(1)
 
 
@@ -64,8 +65,13 @@ def main():
     cbs = CBS(env)
     solution = cbs.search()
     if solution:
-        vis(obstacles, solution)
+        for k, v in solution.items():
+            print(k, end='\t')
+            for vv in v:
+                print(f't{vv.time}->{vv.loc}', end=' ')
+            print()
         print(f'Cost: {compute_cost(solution)}')
+        vis(obstacles, solution)
     else:
         print("Solution not found")
         return
