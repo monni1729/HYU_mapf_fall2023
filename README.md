@@ -5,6 +5,11 @@ Python >= 3.7
 Numpy  
 Matplotlib
 
+## Explanation
+```
+mapf_fall2023.pdf
+```
+
 ## Execution
 ```
 ~/HYU_mapf_fall2023$ python visualize.py
